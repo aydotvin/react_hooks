@@ -1,0 +1,114 @@
+useState:
+{
+	useState is a Hook that lets you add React state to function components.
+
+	Syntax:
+		const [state, setState] = useState(initialValue);
+		-	state: the actual state data that is used in the component.
+		-	setState: the function via which the state is updated. 
+
+	Two ways to set initialValue,
+		-	Direct assignment
+				const [counter, setCounter] = useState(0);
+		-	Via a function (lazy initialization)
+				const [counter, setCounter] = useState(getInitialCountBasedOnSomeLogic);
+
+	Two ways to update the state:
+		-	Directly setting the new state value. In this case, the new state value is not dependant on the previous state.
+				setCounter(98);
+		-	Setting the state via a callback function, if the new state value is based on the previous state value.
+				setCounter((prevState)=>{
+					console.log(prevState);
+					const newState = prevState % 2 == 0 ? prevState+1000 : prevState-1000	//	some logic..
+					return newState
+				});
+
+	State updates are not merged:
+		-	To update a single property in the state object, the complete state object has to be given to the state setter. One should not just specify that one property to the state setter.
+		-	EX:
+				const [userData, setUserData] = useState({
+					age: 23,
+					count: 97,
+				});
+
+			Correct:
+				const increaseUserAge = () => {
+					setUserData({ ...userData, age: userData.age + 1 });		//	Include all previous data and update new state update on top of it.
+				};
+				const increaseUserCount = () => {
+					setUserData({ ...userData, count: userData.count + 1 });
+				};
+
+			Wrong:
+				const increaseUserAge = () => {
+					setUserData({ age: userData.age + 1 });			//	This will override everything else in the state object and only have age proprety.
+				};
+				const increaseUserCount = () => {
+					setUserData({ count: userData.count + 1 });		//	This will override everything else in the state object and only have count proprety.
+				};
+
+		Note that this works in case of CLASS COMPONENT state updates:
+			increaseAge = () => {
+				this.setState({
+					age: this.state.age + 1,
+				});
+			};
+			increaseCount = () => {
+				this.setState({
+					count: this.state.count + 1,
+				});
+			};
+
+	State updates are batched together, ie., if there are multple set state calls happening one after the other they are grouped together and updated in one go. This prevents unnecesary re-rendering of the component.
+}
+
+useEffect:
+{
+	useEffect is a Hook that lets you perform actions/side effects when the functional component is rendered/updated/removed.
+	Once the page is loaded, the ajax calls to load data or event handlers are setup in useEffect.
+
+	This performs the actions of componentDidMount, componentDidUpdate, and componentWillUnmount.
+
+	Syntax:
+		useEffect(() => {
+			console.log("one of the dependants got udpated..");
+			return () => {
+				console.log(`clean up of previous state running..`);
+			};
+		}, [dependants...]);
+
+	Three types:
+		-	Without any dependant parameter.
+		{
+			-	Runs everytime the component is rendered. Almost never used.
+				useEffect(() => {
+					console.log("component rendered");
+				});
+		}
+		
+
+		-	With empty array as dependant parameter.
+		{
+			-	In this case, useEffect block runs only the first time when the component is mounted.
+			-	External api calls to get data is done here.
+					useEffect(() => {
+						console.log("component rendered");
+					}, []);
+		}
+
+		-	With dependants listed in the array.
+		{
+			-	In this case, the useEffect block runs only when the listed dependants gets changed.
+					useEffect(() => {
+						console.log("counter updated.");
+					}, [counter]);
+		}
+	
+	Note:
+		-	DO NOT set state data within the useEffect while having that state as a dependancy.
+				useEffect(() => {
+					setCounter(counter+1);	//	Wrong
+				}, [counter]);
+
+		-	The dependencies are compared to their previous value, and only if there is any change from the previous value, the useEffect will run.
+}

@@ -21,7 +21,7 @@ const UseLayoutEffectComponent = () => {
 		if (showUI) {
 			return (
 				<div>
-					<h3>hello</h3>
+					<h4>hello</h4>
 					<h5>{counter}</h5>
 					<button
 						onClick={() => {
@@ -39,7 +39,7 @@ const UseLayoutEffectComponent = () => {
 
 	return (
 		<div>
-			<h3>useLayoutEffect()</h3>
+			<h2>useLayoutEffect()</h2>
 			{UI()}
 		</div>
 	);

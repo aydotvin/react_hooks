@@ -7,9 +7,9 @@ const UseRefComponent1 = () => {
 	return (
 		<div>
 			<h2>useRef hook 3.</h2>
-			<h3>
+			<h4>
 				count is {count}, previous count was {prevCount.current}
-			</h3>
+			</h4>
 			<button
 				onClick={() => {
 					prevCount.current = count;

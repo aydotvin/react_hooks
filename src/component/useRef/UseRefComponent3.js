@@ -11,7 +11,7 @@ const UseRefComponent3 = () => {
 	return (
 		<div>
 			<h2>useRef hook 1.</h2>
-			<h3>count is {count}</h3>
+			<h4>count is {count}</h4>
 			<button
 				onClick={() => {
 					setcount((prevCount) => {
@@ -21,7 +21,7 @@ const UseRefComponent3 = () => {
 			>
 				Increase state count
 			</button>
-			<h3>ref count is {refCount.current}</h3>
+			<h4>ref count is {refCount.current}</h4>
 			<button
 				onClick={() => {
 					refCount.current += 5; // update state on useRef button click. No change in UI but the value is updated. When state is changed after this, the new ref count is shown in UI.

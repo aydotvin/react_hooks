@@ -9,6 +9,7 @@ import UseContextParent from "./useContext/UseContextParent";
 import UseMemoComponent from "./useMemo/UseMemoComponent";
 import UseCallbackComponent from "./useCallback/UseCallbackComponent";
 import UseLayoutEffectComponent from "./useLayoutEffect/UseLayoutEffectComponent";
+import CustomHookComponent from "./useCustomHook/CustomHookComponent";
 
 const App = () => {
 	return (
@@ -25,6 +26,7 @@ const App = () => {
 				{/* <UseMemoComponent></UseMemoComponent> */}
 				{/* <UseCallbackComponent></UseCallbackComponent> */}
 				{/* <UseLayoutEffectComponent></UseLayoutEffectComponent> */}
+				<CustomHookComponent></CustomHookComponent>
 			</div>
 		</div>
 	);

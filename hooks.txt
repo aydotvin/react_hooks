@@ -200,3 +200,8 @@ useLayoutEffect:
 
 	Use this if one needs to modify the DOM for some reason after the component is rendered.
 }
+
+customHooks:
+{
+	When a certain complex logic has to be used for multiple components, a custom hook is created.
+}

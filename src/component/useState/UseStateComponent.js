@@ -48,8 +48,8 @@ const UseStateComponent = () => {
 				<button onClick={decreaseCount}>decrease count</button>
 			</div>
 			{/* <div className="col-md-12">
-				<h2>age is: {userData.age}</h2>
-				<h2>count is: {userData.count}</h2>
+				<h4>age is: {userData.age}</h4>
+				<h4>count is: {userData.count}</h4>
 				<button onClick={increaseUserAge}>increase user age</button>
 				<button onClick={increaseUserCount}>increase user count</button>
 			</div> */}

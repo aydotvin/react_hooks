@@ -25,8 +25,7 @@ const UseEffectComponent = () => {
 
 	useEffect(() => {
 		console.log("count is " + counter);
-		console.log(counter % 2);
-		if (counter % 2 == 0) {
+		if (counter != 0 && counter % 2 == 0) {
 			return () => {
 				console.log(`clean up of counter ${counter} running..`);
 			};

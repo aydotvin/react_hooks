@@ -112,3 +112,41 @@ useEffect:
 
 		-	The dependencies are compared to their previous value, and only if there is any change from the previous value, the useEffect will run.
 }
+
+useReducer:
+{
+	Similar to useState, but this allow us to perform a variety of actions on the same state data based on the type of the action requested.
+
+	Syntax:
+		const [stateData, dispatch] = useReducer(reducer, initialState, initFunction);
+
+		-	reducer is a function that handles all the different actions that are performed on the state data.
+			-	Based on the action type passed, the reducer will modify the state and returns it and the state will get updated.
+		-	initialState is the initial state for the component.
+		-	initFunction - this is used to lazily initialize the initial state data.
+
+	Reducer:
+		const reducer = (state, action) => {
+			switch (action.type) {
+				case "INCREMENT_AGE":
+					state = { ...state, age: state.age + 1 };
+					break;
+				case "CHANGE_NAME":
+					state = { ...state, name: action.payload.name };
+					break;
+			}
+			return state;
+		};
+
+	Accessing state data:
+		<h4>age is {stateData.age}</h4>
+
+	Updating state data:
+		dispatch({ type: "CHANGE_NAME", payload: { name: newName } });
+		dispatch({ type: "INCREMENT_AGE" });
+}
+
+useRef:
+{
+	
+}

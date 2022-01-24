@@ -1,6 +1,7 @@
 import ClassComponent from "./ClassComponent";
 import UseStateComponent from "./useState/UseStateComponent";
 import UseEffectComponent from "./useEffect/UseEffectComponent";
+import UseReducerComponent from "./useReducer/UseReducerComponent";
 
 const App = () => {
 	return (
@@ -9,6 +10,7 @@ const App = () => {
 				{/* <ClassComponent></ClassComponent> */}
 				{/* <UseStateComponent></UseStateComponent> */}
 				{/* <UseEffectComponent></UseEffectComponent> */}
+				{/* <UseReducerComponent></UseReducerComponent> */}
 			</div>
 		</div>
 	);

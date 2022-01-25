@@ -26,7 +26,7 @@ const App = () => {
 				{/* <UseMemoComponent></UseMemoComponent> */}
 				{/* <UseCallbackComponent></UseCallbackComponent> */}
 				{/* <UseLayoutEffectComponent></UseLayoutEffectComponent> */}
-				<CustomHookComponent></CustomHookComponent>
+				{/* <CustomHookComponent></CustomHookComponent> */}
 			</div>
 		</div>
 	);

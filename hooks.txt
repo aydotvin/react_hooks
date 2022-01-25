@@ -186,9 +186,7 @@ useCallback:
 	There is no need for a function to be reinitialized if nothing is changed in it.
 
 	Syntax:
-		const getParentInfoMethod = useCallback(() => {
-			console.log(`country is ${country}`)
-		}, [country])
+		const getParentInfoMethod = useCallback(expensiveCalculation, [data])
 
 		This method is passed to the child component. It will get initialzed again only if the country changes.
 }

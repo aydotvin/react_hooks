@@ -1,21 +1,16 @@
 import { useState, useEffect, useCallback } from "react";
 
-const UseCallbackChild1 = ({ parentInformation }) => {
+const UseCallbackChild1 = ({ countryInformation }) => {
 	useEffect(() => {
-		parentInformation();
-		console.log("parent info call changed");
-	}, [parentInformation]);
+		countryInformation();
+		console.log("country info call changed");
+	}, [countryInformation]);
 
 	return (
 		<div>
 			<h5>useCallback child 1</h5>
 		</div>
 	);
-};
-
-const parentInfo = (country = "India") => {
-	console.log("function initialized.");
-	console.log(`country: ${country}`);
 };
 
 const UseCallbackComponent = () => {
@@ -31,11 +26,13 @@ const UseCallbackComponent = () => {
 		setCountry("India " + counter);
 	};
 
-	// const parentInformation = () => parentInfo(country);
-	const parentInformation = useCallback(() => parentInfo(country), [country]);
-	// const parentInformation = useCallback(() => {
-	// 	console.log(`country: ${country}`);
-	// }, [country]);
+	const countryInfo = () => {
+		console.log("function initialized.");
+		console.log(`country: ${country}`);
+	};
+
+	// const countryInformation = countryInfo;
+	const countryInformation = useCallback(countryInfo, [country]);
 
 	return (
 		<div>
@@ -43,7 +40,7 @@ const UseCallbackComponent = () => {
 			<h5>count is {counter}</h5>
 			<button onClick={increaseCount}>increase count</button>
 			<button onClick={changeCountry}>change country</button>
-			<UseCallbackChild1 parentInformation={parentInformation}></UseCallbackChild1>
+			<UseCallbackChild1 countryInformation={countryInformation}></UseCallbackChild1>
 		</div>
 	);
 };

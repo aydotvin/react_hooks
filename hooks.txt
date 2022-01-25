@@ -204,4 +204,6 @@ useLayoutEffect:
 customHooks:
 {
 	When a certain complex logic has to be used for multiple components, a custom hook is created.
+
+	New logics are added on top of existing hooks to form custom hooks.
 }

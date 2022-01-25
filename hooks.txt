@@ -183,7 +183,7 @@ useCallback:
 {
 	Similar to useMemo but this memoizes the actual function instead of the function result as done in useMemo.
 
-	There is no need for a function to be reinitialized if nothing is changed in it.
+	There is no need for a function to be reinitialized if the function's dependants are not changed.
 
 	Syntax:
 		const getParentInfoMethod = useCallback(expensiveCalculation, [data])

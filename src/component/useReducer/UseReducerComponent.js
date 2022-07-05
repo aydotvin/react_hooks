@@ -20,11 +20,11 @@ function getStateData(initialState) {
 		console.log(index);
 	}
 	console.log(initialState);
-	return { name: "vinay", age: 25 };
+	return { name: "john", age: 25 };
 }
 
 const UseReducerComponent = () => {
-	const [stateData, dispatch] = useReducer(reducer, { name: "vinay", age: 25 });
+	const [stateData, dispatch] = useReducer(reducer, { name: "john", age: 25 });
 	// const [stateData, dispatch] = useReducer(reducer, undefined, getStateData);
 
 	const incrementAge = () => {
